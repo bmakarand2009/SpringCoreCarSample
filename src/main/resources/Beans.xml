@@ -1,0 +1,40 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="tire1" class="com.ajcp.withspring.v1.testimpl.Tire">
+	</bean>
+
+	<bean id="tire2" class="com.ajcp.withspring.v1.testimpl.Tire">
+	</bean>
+
+	<bean id="tire3" class="com.ajcp.withspring.v1.testimpl.Tire">
+	</bean>
+
+	<bean id="tire4" class="com.ajcp.withspring.v1.testimpl.Tire">
+	</bean>
+
+	<bean id="tireList" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="tire1" />
+				<ref bean="tire1" />
+				<ref bean="tire1" />
+				<ref bean="tire1" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<!-- TODO convert the value to Enum and class and use it here -->
+	<!-- setter Injection example -->
+	<bean id="engine" class="com.ajcp.withspring.v1.testimpl.Engine">
+		<property name="type" value="V4"></property>
+	</bean>
+
+	<!-- constructor injection example -->
+	<bean id="car" class="com.ajcp.withspring.v1.testimpl.Car">
+		<constructor-arg ref="tireList" />
+		<constructor-arg ref="engine" />
+
+	</bean>
+</beans>
